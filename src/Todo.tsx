@@ -4,7 +4,8 @@ import {
 	StyleSheet, 
 	Text, 
 	Image, 
-	TouchableOpacity 
+	TouchableOpacity, 
+	Vibration
 } from "react-native"; 
 import { useAppDispatch} from './redux-toolkit/hook';
 import { removeTodo } from "./redux-toolkit/todoSlice";
@@ -23,6 +24,7 @@ export const Todo = ({ todo }: Todo) => {
 	  
 	const deleteTodo = (id: string) => {
 		dispatch(removeTodo(id));
+		Vibration.vibrate(0.1 * 1000);
 	};
 	 
 	return (  

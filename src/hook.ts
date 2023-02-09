@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Alert, Keyboard } from "react-native";
+import { Alert, Keyboard, Vibration } from "react-native";
 import { useAppDispatch, useAppSelector } from "./redux-toolkit/hook";
 import { addTodo, removeTodo, showTodoModal } from "./redux-toolkit/todoSlice";
 
@@ -26,6 +26,7 @@ export const useAddTodo = () => {
 		dispatch(showTodoModal(!showModal))
 		setValue('');
 		Keyboard.dismiss();
+		Vibration.vibrate(0.2 * 1000);
 	} 
 
 	return {
